@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,149 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+* {
+  margin: 5;
+  padding: 10;
+  box-sizing: border-box;
+}
+
+/* use by the body */
+body {
+  font-family: "Playfair Display", sans-serif;
+  font-size: 14px;
+  padding: 1rem;
+}
+
+/* used by the new product form */
+.request-form {
+  background-color: rgb(252, 249, 249);
+  border: 1px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+/* used by the add product button and order buttons */
+button {
+  padding: 0.4rem 1rem;
+  margin: 0rem;
+  font-family: inherit;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(199, 24, 24);
+  color: white
+}
+
+/* used by search field */
+input {
+  padding: 0.25rem;
+  font-family: inherit;
+  font-size: 1em;
+  border: 1px solid gray;
+  margin: 0.3rem;
+  transition: all 0.2s;
+  width: 40%;
+}
+
+.title {
+  align-content : left;
+  font-size: 2em;
+  color: white;
+}
+.nav {
+  display: inline-block;
+  padding: 0.5rem 0.5rem 0.5rem 5rem;
+  text-decoration: none;
+  font-size: 1em;
+  color: white;
+  display: flex;
+  transition: 0.1s;
+  text-decoration-line: underline;
+}
+a.nav.hover,
+a.nav.active {
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+/* margin is used by the cards, but doesn't seem to care about the border information I added */
+.card {
+  margin: 1rem;
+  border:rgb(74, 72, 72);
+  border: 1px;
+}
+
+.card img {
+  width: 70%;
+}
+
+.App-link {
+  color: #147e9b;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  background: rgb(199, 24, 24);
+  font: white;
+  color: white;
+  height: 5rem;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: calc(33% - 2rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    width: calc(25% - 2rem);
+  }
+}
+
+@media (min-width: 1200px) {
+  .card {
+    width: calc(20% - 2rem);
+  }
+}
+
+.search {
+  margin: 1rem;
+}
+
+.filter {
+  margin: 1rem;
+  margin-top: 0.2rem;
+  margin-bottom: 10px;
+}
+
+
+.searchbar {
+  flex: 1 1 auto;
+  margin: 1rem;
+  display: flex;
+  justify-content: left;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+.cards {
+  list-style: none;
+}
+
+.landing {
+  background-color: rgb(199, 24, 24);
+  text-align: center;
+  padding-bottom: 5rem;
 }
