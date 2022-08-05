@@ -25,7 +25,7 @@ function NewDog({onAddDog}){
           body: JSON.stringify(formData),
         })
           .then((r) => r.json())
-          .then((formData) => onAddOrder(formData))
+          .then((formData) => onAddDog(formData))
           setFormData({
             name: "",
             breed: "",

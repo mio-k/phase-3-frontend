@@ -1,13 +1,13 @@
 import React from "react";
 import OrderList from "./OrderList";
 
-function DogItem(){
+function DogItem({dog, onDeleteClick, onUpdateDog}){
 
     function handleDeleteClick() {
       fetch(`http://localhost:9292/dogs/${dog.id}`, {
         method: "DELETE",
       });
-      onOrderDelete(dog.id);
+      onDeleteClick(dog.id);
     }
   
     return (
@@ -16,7 +16,7 @@ function DogItem(){
         <p>Breed: {dog.breed}</p>
         <p>Age: {dog.age}</p>
         <p>Weight: {dog.weight}</p>
-        <button onClick={handleDeleteClick}>Delete Dog</button>
+        <button onClick={onDeleteClick}>Delete Dog</button>
         <OrderList />
       </li>
     );

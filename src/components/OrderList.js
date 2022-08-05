@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import OrderItem from "./OrderItem";
 
-function OrderList({orders, onAddOrder, onDeleteOrder, onpdateOrder}){
+function OrderList({onAddOrder, onOrderDelete, onUpdateOrder}){
 
     const [orders, setOrders] = useState([]);
 
@@ -14,7 +15,7 @@ function OrderList({orders, onAddOrder, onDeleteOrder, onpdateOrder}){
       setOrders([...orders, newOrder]);
     }
     
-    function onDeleteOrder(id) {
+    function onOrderDelete(id) {
       const updatedOrders = orders.filter((order) => order.id !== id);
       setOrders(updatedOrders);
     }

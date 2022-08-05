@@ -1,5 +1,5 @@
 import React from "react";
-import Dog from "./Dog";
+import DogItem from "./DogItem";
 
 function DogList({dogs, onDeleteDog, onUpdateDog}){
 
@@ -8,9 +8,9 @@ function DogList({dogs, onDeleteDog, onUpdateDog}){
       <h2>Customers</h2>
       <ul>
         {dogs.map((dog) => 
-          <Dog
+          <DogItem
             key={dog.id}
-            order={dog}
+            dog={dog}
             onDeleteDog={onDeleteDog}
             onUpdateDog={onUpdateDog}
           />

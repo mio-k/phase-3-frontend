@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import DogList from "./DogList";
+import NewDog from "./NewDog";
 
 function Main(){
 
@@ -11,7 +13,7 @@ useEffect(() => {
 }, []);
 
 function handleAddDog(newDog) {
-  setOrders([...dogs, newDog]);
+  setDogs([...dogs, newDog]);
 }
 
 function handleDeleteDog(id) {
@@ -27,10 +29,13 @@ function handleUpdateDog(updatedDogObj) {
       return dog;
     }
   });
-  setOrders(updatedDogs);
+  setDogs(updatedDogs);
 }
-return[
-    "blah"
-]
+return(
+  <div>
+    <DogList dogs={dogs} handleDeleteDog={handleDeleteDog} handleUpdateDog={handleUpdateDog} />
+    <NewDog handleAddDog={handleAddDog}/>
+    </div>
+)
 }
 export default Main;
