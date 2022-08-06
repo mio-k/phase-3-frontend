@@ -1,16 +1,27 @@
 import React from "react";
-import DogItem from "./DogItem";
+import { Link, Outlet } from "react-router-dom";
+// import DogItem from "./DogItem";
 
 function DogList({dogs, onDeleteDog}){
 
   return(
     <div className="list">
-      <h2>Customers</h2>
-      <ul>
-        {dogs.map((dog) => 
+      <h2>Member Dogs</h2>
+      <nav>
+        {/* {dogs.map((dog) => 
           <DogItem key={dog.id} dog={dog} onDeleteDog={onDeleteDog} />
-        )}
-      </ul>
+        )} */}
+        {dogs.map((dog) => (
+          <Link
+          style={{ display: "block", margin: "1rem 0" }}
+          to={`/dogs/${dog.id}`}
+          key={dog.id}
+        >
+          {dog.name}
+        </Link>
+        ))}
+      </nav>
+      <Outlet />
     </div>
   )
 }
