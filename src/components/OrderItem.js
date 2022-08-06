@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import EditOrder from "./EditOrder";
 
 
 function OrderItem({ order, onOrderDelete, onUpdateOrder }) {
 
-    const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   
-    function handleDeleteClick() {
-      fetch(`http://localhost:9292/orders/${order.id}`, {
-        method: "DELETE",
-      });
+  function handleDeleteClick() {
+    fetch(`http://localhost:9292/orders/${order.id}`, {
+      method: "DELETE",
+    });
       onOrderDelete(order.id);
-    }
+  }
   
-    function handleUpdateOrder(updatedOrder) {
-      setIsEditing(false);
-      onUpdateOrder(updatedOrder);
-    }
+  function handleUpdateOrder(updatedOrder) {
+    setIsEditing(false);
+    onUpdateOrder(updatedOrder);
+  }
   
-    return (
-      <li>
-        <p>Item: {order.item}</p>
-        <p>Quantity: {order.quantity}</p>
-        <p>Pickup Date: {order.pickup_date}</p>
+  return (
+    <li>
+      <p>Item: {order.item}</p>
+      <p>Quantity: {order.quantity}</p>
+      <p>Pickup Date: {order.pickup_date}</p>
         {isEditing ? (
           <EditOrder order={order} onUpdateOrder={handleUpdateOrder} />
         ) : ("Order Accepted")
@@ -37,8 +37,8 @@ function OrderItem({ order, onOrderDelete, onUpdateOrder }) {
             </button>
           </div>
         }
-      </li>
-    );
-  }
+    </li>
+  );
+}
   
 export default OrderItem;

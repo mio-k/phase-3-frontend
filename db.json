@@ -2,47 +2,54 @@
   "orders": [
     {
       "id": 2,
-      "dog": "Axel",
+      "dog_id": 9,
       "item": "Lamb",
       "quantity": 10,
       "pickup_date": "9/25"
     },
     {
       "item": "Duck",
-      "dog": "",
+      "dog_id": 9,
       "quantity": "6",
-      "pickup_date": "8/21",
-      "dog.name": "Mugi",
-      "id": 5
+      "pickup_date": "8/21"
     },
     {
       "item": "Salmon",
-      "dog": "",
+      "dog_id": 9,
       "quantity": "3",
-      "pickup_date": "8/21",
-      "name": "Clover",
-      "id": 6
+      "pickup_date": "8/21"
     },
     {
       "item": "Chicken",
-      "dog": "Stella",
+      "dog_id": 9,
       "quantity": "2",
-      "pickup_date": "next wednesday",
-      "id": 7
+      "pickup_date": "next wednesday"
     },
     {
       "item": "Turkey",
-      "dog": "Rose",
+      "dog_id": 9,
       "quantity": "3",
-      "pickup_date": "8/30",
-      "id": 8
+      "pickup_date": "8/30"
     },
     {
       "item": "Beef",
-      "dog": "Bodhi",
+      "dog_id": 9,
       "quantity": "3",
-      "pickup_date": "8/29",
-      "id": 9
+      "pickup_date": "8/29"
+    }
+  ],
+  "dogs": [
+    {
+      "name": "Draymond",
+      "breed": "Norwich",
+      "weight": 10,
+      "age": 3
+    },
+    {
+      "name": "Axel",
+      "breed": "PWD",
+      "weight": 55,
+      "age": 6
     }
   ]
 }

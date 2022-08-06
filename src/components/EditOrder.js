@@ -10,8 +10,7 @@ function EditOrder({order, onUpdateOrder }) {
 
   function handleFormSubmit(e) {
     e.preventDefault();
-
-    fetch(`http://localhost:9292/orders/${order.id}`, {
+    fetch(`http://localhost:9292/dogs/${order.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
