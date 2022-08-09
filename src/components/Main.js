@@ -2,7 +2,7 @@ import React from "react";
 import DogList from "./DogList";
 import NewDog from "./NewDog";
 
-function Main({dogs, setDogs, onDeleteDog}){
+function Main({dogs, setDogs}){
 
   function onAddDog(newDog) {
     setDogs([...dogs, newDog]);
@@ -10,7 +10,7 @@ function Main({dogs, setDogs, onDeleteDog}){
 
   return(
     <div>
-      <DogList dogs={dogs} onDeleteDog={onDeleteDog} />
+      <DogList dogs={dogs} />
       <NewDog onAddDog={onAddDog}/>
     </div>
   )

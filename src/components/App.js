@@ -25,7 +25,7 @@ function App() {
         <Link to="/dogs">View Member Dogs</Link> | {" "}
       </div>
       <Routes>
-        <Route path="dogs" element={<Main dogs={dogs} setDogs={setDogs} onDeleteDog={onDeleteDog}/>} > </Route>
+        <Route path="dogs" element={<Main dogs={dogs} setDogs={setDogs} />} > </Route>
         <Route path="dogs/:id" element={<DogItem dogs={dogs} onDeleteDog={onDeleteDog}/>}/> 
         <Route path="*" element={ <main style={{ padding: "1rem" }}> <p>No matching dog found</p></main>}/>
       </Routes>
