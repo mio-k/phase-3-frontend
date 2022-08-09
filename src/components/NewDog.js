@@ -38,9 +38,9 @@ function NewDog({onAddDog}){
     <form className="new-order" onSubmit={handleSubmit}>
       <h3>Add New Dog</h3>
         Dog's Name: <input type="text" name="name" value={formData.name} onChange={handleChange}/><br/>
-        Item: <input type="text" name="breed" value={formData.breed} onChange={handleChange}/><br/>
-        Quantity: <input type="number" name="age" value={formData.age} onChange={handleChange}/><br/>
-        Pickup Date: <input type="number" name="weight" value={formData.weight} onChange={handleChange}/><br/>
+        Breed: <input type="text" name="breed" value={formData.breed} onChange={handleChange}/><br/>
+        Age: <input type="number" name="age" value={formData.age} onChange={handleChange}/><br/>
+        Weight: <input type="number" name="weight" value={formData.weight} onChange={handleChange}/><br/>
       <button type="submit">Add Dog</button>
     </form>
   )

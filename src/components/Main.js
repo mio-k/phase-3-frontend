@@ -2,24 +2,20 @@ import React, { useEffect, useState } from "react";
 import DogList from "./DogList";
 import NewDog from "./NewDog";
 
-function Main(){
+function Main({dogs, setDogs, onDeleteDog}){
 
-  const [dogs, setDogs] = useState([]);
+  // const [dogs, setDogs] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:9292/dogs")
-      .then((r) => r.json())
-      .then((dogs) => setDogs(dogs));
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:9292/dogs")
+  //     .then((r) => r.json())
+  //     .then((dogs) => setDogs(dogs));
+  // }, []);
 
   function handleAddDog(newDog) {
     setDogs([...dogs, newDog]);
   }
 
-  function onDeleteDog(id) {
-    const updatedDogs = dogs.filter((dog) => dog.id !== id);
-    setDogs(updatedDogs);
-  }
 
   return(
     <div>

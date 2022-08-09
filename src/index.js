@@ -10,10 +10,12 @@ import Main from "./components/Main";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <Routes>
+    <App />
+    {/* <Routes>
       <Route path="/" element={<App />} />
-        <Route path="dogs" element={<Main />} /> 
-          <Route path=":dog.id" element={<DogItem />}/> 
+        <Route path="dogs" element={<Main />} > 
+          <Route path=":id" element={<DogItem />}/> 
+        </Route>
         <Route
           path="*"
           element={
@@ -23,6 +25,6 @@ root.render(
           }
         />
 
-    </Routes>
+    </Routes> */}
   </BrowserRouter>
 );
