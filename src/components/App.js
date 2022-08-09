@@ -21,26 +21,14 @@ function App() {
   return (
     <main>
       <Header />
-      <nav>
+      <div>
         <Link to="/dogs">View Member Dogs</Link> | {" "}
-        {/* <Route path="/" element={ <Main /> } /> */}
-      </nav>
+      </div>
       <Routes>
-      {/* <Route path="/" element={<App />} /> */}
-        <Route path="dogs" element={<Main dogs={dogs} setDogs={setDogs} onDeleteDog={onDeleteDog}/>} > 
-          {/* <Route path=":id" element={<DogItem dogs={dogs} onDeleteDog={onDeleteDog}/>}/>  */}
-        </Route>
+        <Route path="dogs" element={<Main dogs={dogs} setDogs={setDogs} onDeleteDog={onDeleteDog}/>} > </Route>
         <Route path="dogs/:id" element={<DogItem dogs={dogs} onDeleteDog={onDeleteDog}/>}/> 
-        <Route
-          path="*"
-          element={
-            <main style={{ padding: "1rem" }}>
-              <p>No matching dog found</p>
-            </main>
-          }
-        />
-
-    </Routes>
+        <Route path="*" element={ <main style={{ padding: "1rem" }}> <p>No matching dog found</p></main>}/>
+      </Routes>
       <Outlet />
     </main>
   );
