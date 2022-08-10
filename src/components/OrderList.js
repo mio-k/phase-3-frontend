@@ -1,49 +1,23 @@
-import React, { useEffect, useState } from "react";
-import OrderItem from "./OrderItem";
+import React from "react";
+import {Link, Outlet} from "react-router-dom";
 
-function OrderList({onOrderDelete, onUpdateOrder}){
-
-  const [orders, setOrders] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:9292/orders")
-      .then((r) => r.json())
-      .then((orders) => setOrders(orders));
-  }, []);
+function OrderList({orders}){
     
-    // function onAddOrder(newOrder) {
-    //   setOrders([...orders, newOrder]);
-    // }
-    
-  function handleOrderDelete(id) {
-    const updatedOrders = orders.filter((order) => order.id !== id);
-      setOrders(updatedOrders);
-  }
-    
-  function handleUpdateOrder(updatedOrderObj) {
-    const updatedOrders = orders.map((order) => {
-      if (order.id === updatedOrderObj.id) {
-        return updatedOrderObj;
-      } else {
-        return order;
-      }
-    });
-      setOrders(updatedOrders);
-  }
-
   return(
     <div className="list">
       <h2>Current Orders</h2>
-      <ul>
-        {orders.map((order) => 
-          <OrderItem
-            key={order.id}
-            order={order}
-            onOrderDelete={handleOrderDelete}
-            onUpdateOrder={handleUpdateOrder}
-          />
-        )}
-      </ul>
+      <nav>
+        {orders.map((order) => (
+          <Link
+          style={{ display: "block", margin: "1rem 0" }}
+          to={`/orders/${order.id}`}
+          key={order.id}
+          >
+          {order.pickup_date}
+        </Link>
+        ))} 
+      </nav>
+      <Outlet />
     </div>
   )
 }

@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
+import {useParams} from "react-router-dom"
 
 function NewOrder({onAddOrder}){
+
+  let dogId = useParams();
+
   const [formData, setFormData] = useState({
     item: "",
     quantity: 0,
     pickup_date: "",
+    dog_id: dogId
   })
     
   function handleChange(e){
@@ -35,8 +40,8 @@ function NewOrder({onAddOrder}){
     <form className="new-order" onSubmit={handleSubmit}>
       <h3>Add New Order</h3>
         Item: <input type="text" name="item" value={formData.item} onChange={handleChange}/><br/>
-        Quantity: <input type="number" name="age" value={formData.age} onChange={handleChange}/><br/>
-        Pickup Date: <input type="number" name="weight" value={formData.weight} onChange={handleChange}/><br/>
+        Quantity: <input type="number" name="quantity" value={formData.quantity} onChange={handleChange}/><br/>
+        Pickup Date: <input type="text" name="pickup_date" value={formData.pickup_date} onChange={handleChange}/><br/>
       <button type="submit">Place Order</button>
     </form>
   )
