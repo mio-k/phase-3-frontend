@@ -6,6 +6,8 @@ import DogItem from "./DogItem";
 
 function OrderItem({ onDeleteOrder, onUpdateOrder }) {
   let {order_id} = useParams();
+
+  const [isEditing, setIsEditing] = useState(false);
   
   function handleDeleteClick() {
     fetch(`http://localhost:9292/orders/${order_id}`, {
@@ -23,7 +25,7 @@ function OrderItem({ onDeleteOrder, onUpdateOrder }) {
   }, [])
 
   
-  function handleUpdateClick(updatedOrder) {
+  function onUpdateOrder(updatedOrder) {
     onUpdateOrder(updatedOrder);
   }
   
@@ -34,8 +36,14 @@ function OrderItem({ onDeleteOrder, onUpdateOrder }) {
       <p>Item: {order.item}</p>
       <p>Quantity: {order.quantity}</p>
       <p>Pickup Date: {order.pickup_date}</p>
+      {isEditing ? (
+          <EditOrder order={order} onUpdateOrder={onUpdateOrder} />
+        ) : ("")
+      }
       <button onClick={handleDeleteClick}>Delete Order</button>
-      <button onClick={handleUpdateClick}>Update Order</button> </div>
+      <button onClick={() => setIsEditing((isEditing) => !isEditing)}>
+           Edit Order
+      </button> </div>
       ): <p>No Order for ${DogItem.name}</p>}
   </div>
   );

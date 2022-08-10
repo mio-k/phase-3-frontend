@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
 function EditOrder({order, onUpdateOrder }) {
 
@@ -7,10 +8,11 @@ function EditOrder({order, onUpdateOrder }) {
     quantity: order.quantity,
     pickup_date: order.pickup_date
   })
+  let orderId = useParams();
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    fetch(`http://localhost:9292/dogs/${order.id}`, {
+    fetch(`http://localhost:9292/dogs/${orderId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

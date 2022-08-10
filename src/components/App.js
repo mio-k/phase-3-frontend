@@ -4,6 +4,7 @@ import Header from "./Header";
 import Main from "./Main";
 import DogItem from "./DogItem";
 import OrderItem from "./OrderItem";
+import AllOrders from "./AllOrders";
 
 function App() {
   const [dogs, setDogs] = useState([]);
@@ -50,6 +51,7 @@ function App() {
         <Route path="dogs/:dog_id" element={<DogItem onDeleteDog={onDeleteDog} setOrders={setOrders} orders={orders} />}/> 
         <Route path="*" element={ <main style={{ padding: "1rem" }}> <p>No matching dog found</p></main>}/>
         <Route path="orders/:order_id" element={<OrderItem onDeleteOrder={onDeleteOrder} onUpdateOrder={onUpdateOrder}/>}/> 
+        <Route path="orders" element={<AllOrders orders={orders}/>} />
       </Routes>
       <Outlet />
     </main>
