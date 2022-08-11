@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
 import EditOrder from "./EditOrder";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function OrderItem({ onDeleteOrder, handleUpdateOrder }) {
   let {order_id} = useParams();
+  let {dog_id} = useParams();
+  let navigate = useNavigate();
 
   const [isEditing, setIsEditing] = useState(false);
   
   function handleDeleteClick() {
     fetch(`http://localhost:9292/orders/${order_id}`, {
       method: "DELETE",
-    });
+    })
+    .then(() => navigate(`/dogs/${dog_id}`))
       onDeleteOrder(order_id);
   }
   const [order, setOrder] = useState({});
