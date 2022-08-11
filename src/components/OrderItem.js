@@ -13,7 +13,7 @@ function OrderItem({ onDeleteOrder, handleUpdateOrder }) {
     fetch(`http://localhost:9292/orders/${order_id}`, {
       method: "DELETE",
     })
-    .then(() => navigate(`/dogs/${dog_id}`))
+    .then(() => navigate(`/dogs`))
       onDeleteOrder(order_id);
   }
   const [order, setOrder] = useState({});
