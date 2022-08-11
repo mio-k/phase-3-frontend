@@ -1,72 +1,39 @@
-# Getting Started with Create React App
+# MY-APP-FRONTEND
 
-testing my first commit
-
+This is where I store the frontend side of the phase 3 final project. 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+The backend side is found at https://github.com/mio-k/phase-3-sinatra-react-project.
 
-In the project directory, you can run:
+##  Project Requirements
+The requirements for the phase 3 project are as follows:
+- Use Active Record to interact with a database. In this project, I've used ActiveRecord to create migrations, then define table structures, and seed the tables with data.
+- Have at least two models with a one-to-many relationship.  In this project, I got two models -- dog model and order model, and they have one to many relationship.
+- At a minimum, set up the following API routes in Sinatra:
+    - create and read actions for both models.  you can create, read, and delete data for both dog and order models.
+    - full CRUD capability for one of the models.  The order model allows you to create, read, update and delete record.
+- Build a separate React frontend application that interacts with the API to perform CRUD actions. This repo contains the frontend side developed in React.
+- Use good OO design patterns. You should have separate classes for each of your models, and create instance and class methods as necessary. The project has both Dog and Order classes, and you can create instances as needed.
 
-### `npm start`
+### To start the app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+First start the server from the backend side. Navigate to the backend folder and start the server.
+`rake server`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Then from the frontend directry, bring up the browser by running:
+`npm start`
+This will open [http://localhost:3000](http://localhost:3000) and loads the app.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### What the app does
 
-### `npm run build`
+This app is for the Dog Pod members to place food orders for their dogs.
+Things you can do includes:
+- View dog's profile
+- View upcoming orders for each dog
+- Add new dogs
+- Delete dogs
+- Update orders
+- Add new orders
+- Delete orders
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
