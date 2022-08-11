@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import EditOrder from "./EditOrder";
 import { useParams } from "react-router-dom";
-import DogItem from "./DogItem";
 
-
-function OrderItem({ onDeleteOrder, onUpdateOrder }) {
+function OrderItem({ onDeleteOrder, handleUpdateOrder }) {
   let {order_id} = useParams();
 
   const [isEditing, setIsEditing] = useState(false);
@@ -26,7 +24,7 @@ function OrderItem({ onDeleteOrder, onUpdateOrder }) {
 
   
   function onUpdateOrder(updatedOrder) {
-    onUpdateOrder(updatedOrder);
+    handleUpdateOrder(updatedOrder);
   }
   
   return (
@@ -44,7 +42,7 @@ function OrderItem({ onDeleteOrder, onUpdateOrder }) {
       <button onClick={() => setIsEditing((isEditing) => !isEditing)}>
            Edit Order
       </button> </div>
-      ): <p>No Order for ${DogItem.name}</p>}
+      ): <p>No Order for Dog Name Here</p>}
   </div>
   );
 }

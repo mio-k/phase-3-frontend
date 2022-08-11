@@ -3,13 +3,14 @@ import {Link, Outlet} from "react-router-dom";
 
 function AllOrders({orders}){
     return(
-        <div className="list">
+        <div>
             <h2>All Orders</h2>
+            <p>Orders by all Dog Pod members</p>
             <ul>
                 {orders.map((order) => (
-                    <li><Link to={`/orders/${order.id}`} key={order.id}>
-                    Order ID: {order.id}
-                    </Link></li>
+                    <Link to={`/orders/${order.id}`} key={order.id}>
+                    <li>Order ID: {order.id}</li>
+                    </Link>
                     ))} 
             </ul>
             <Outlet />

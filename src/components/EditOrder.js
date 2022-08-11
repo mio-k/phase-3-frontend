@@ -8,16 +8,16 @@ function EditOrder({order, onUpdateOrder }) {
     quantity: order.quantity,
     pickup_date: order.pickup_date
   })
-  let orderId = useParams();
+  let {order_id} = useParams();
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    fetch(`http://localhost:9292/dogs/${orderId}`, {
+    fetch(`http://localhost:9292/orders/${order_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      item: JSON.stringify({
+      body: JSON.stringify({
         item: revisedData.item,
         quantity: revisedData.quantity,
         pickup_date: revisedData.pickup_date
@@ -29,9 +29,9 @@ function EditOrder({order, onUpdateOrder }) {
 
   return (
     <form className="edit-order" onSubmit={handleFormSubmit}>
-      Item: <input type="text" name="item" value={revisedData.item} onChange={(e) => setRevisedData(e.target.value)} />
-      Pickup Date: <input type="text" name="pickup_date" value={revisedData.pickup_date} onChange={(e) => setRevisedData(e.target.value)} />
-      Quantity: <input type="text" name="quantity" value={revisedData.quantity} onChange={(e) => setRevisedData(e.target.value)} />
+      Item: <input type="text" name="item" value={revisedData.item} onChange={(e) => setRevisedData((previousRevisedData) => ({...previousRevisedData, item: e.target.value}))} />
+      Pickup Date: <input type="text" name="pickup_date" value={revisedData.pickup_date} onChange={(e) => setRevisedData((previousRevisedData) => ({...previousRevisedData, pickup_date: e.target.value}))} />
+      Quantity: <input type="text" name="quantity" value={revisedData.quantity} onChange={(e) => setRevisedData((previousRevisedData) => ({...previousRevisedData, quantity: e.target.value}))} />
       <input type="submit" value="Save" />
     </form>
   );

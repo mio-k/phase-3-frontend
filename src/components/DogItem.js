@@ -1,15 +1,19 @@
 import React, {useEffect, useState} from "react";
 import OrderList from "./OrderList";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import NewOrder from "./NewOrder";
 
-function DogItem({onDeleteDog, setOrders, orders}){
+function DogItem({onDeleteDog}){
   let {dog_id} = useParams();
+  let navigate = useNavigate();
+
+  let [orders, setOrders] = useState([])
   
   function handleDeleteClick() {
     fetch(`http://localhost:9292/dogs/${dog_id}`, {
       method: "DELETE",
-    });
+    })
+    .then(() => navigate("/dogs"))
       onDeleteDog(dog_id);
   }
 
@@ -19,6 +23,7 @@ function DogItem({onDeleteDog, setOrders, orders}){
     .then(r => r.json())
     .then(individualDog => {
       setDog(individualDog)
+      console.log(individualDog.orders)
       setOrders(individualDog.orders)
     })
   }, [])
@@ -26,21 +31,6 @@ function DogItem({onDeleteDog, setOrders, orders}){
   function onAddOrder(newOrder) {
     setOrders([...orders, newOrder]);
   }
-  // function onOrderDelete(dog_id) {
-  //   const updatedOrders = orders.filter((order) => order.id !== dog_id);
-  //     setOrders(updatedOrders);
-  // }
-    
-  // function onUpdateOrder(updatedOrderObj) {
-  //   const updatedOrders = orders.map((order) => {
-  //     if (order.id === updatedOrderObj.id) {
-  //       return updatedOrderObj;
-  //     } else {
-  //       return order;
-  //     }
-  //   });
-  //     setOrders(updatedOrders);
-  // }
   return (
     <div>
       {dog ?  (
@@ -53,8 +43,8 @@ function DogItem({onDeleteDog, setOrders, orders}){
           <button onClick={handleDeleteClick}>Delete Dog</button>
       </div>
       ): <p>dog not found</p>}
-        <OrderList orders={orders} />
-        <NewOrder onAddOrder={onAddOrder}/>
+        <OrderList orders={orders} dogName={dog.name}/>
+        <NewOrder onAddOrder={onAddOrder} dogName={dog.name}/>
     </div>
   );
 }

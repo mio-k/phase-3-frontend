@@ -1,7 +1,7 @@
 import React, {useState } from "react";
 import {useParams} from "react-router-dom"
 
-function NewOrder({onAddOrder}){
+function NewOrder({onAddOrder, dogName}){
 
   let dogId = useParams();
 
@@ -37,8 +37,9 @@ function NewOrder({onAddOrder}){
         })
   }
   return(
-    <form className="new-order" onSubmit={handleSubmit}>
+    <form className="order-form" onSubmit={handleSubmit}>
       <h3>Add New Order</h3>
+      <p>Create a new order for {dogName}.</p>
         Item: <input type="text" name="item" value={formData.item} onChange={handleChange}/><br/>
         Quantity: <input type="number" name="quantity" value={formData.quantity} onChange={handleChange}/><br/>
         Pickup Date: <input type="text" name="pickup_date" value={formData.pickup_date} onChange={handleChange}/><br/>

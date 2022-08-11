@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:9292/dogs")
       .then((r) => r.json())
-      .then((dogs) => setDogs(dogs));
+      .then((allDogs) => setDogs(allDogs));
   }, []);
 
   useEffect(() => {
@@ -23,7 +23,9 @@ function App() {
   }, []);
 
   function onDeleteDog(dog_id) {
-    const updatedDogs = dogs.filter((dog) => dog.id !== dog_id);
+    console.log(dogs, dog_id)
+    const updatedDogs = dogs.filter((dog) => dog.id.toString() !== dog_id);
+    console.log(updatedDogs)
     setDogs(updatedDogs);
   }
 
@@ -32,7 +34,8 @@ function App() {
       setOrders(updatedOrders);
   }
   
-  function onUpdateOrder(updatedOrderObj) {
+  function handleUpdateOrder(updatedOrderObj) {
+    console.log(updatedOrderObj)
     const updatedOrders = orders.map((order) => {
       if (order.id === updatedOrderObj.id) {
         return updatedOrderObj;
@@ -46,11 +49,11 @@ function App() {
   return (
     <main>
       <Header />
+      <p>Welcome to the Dog Pod Food Orders site!</p>
       <Routes>
         <Route path="dogs" element={<Main dogs={dogs} setDogs={setDogs} />} /> 
-        <Route path="dogs/:dog_id" element={<DogItem onDeleteDog={onDeleteDog} setOrders={setOrders} orders={orders} />}/> 
-        <Route path="*" element={ <main style={{ padding: "1rem" }}> <p>No matching dog found</p></main>}/>
-        <Route path="orders/:order_id" element={<OrderItem onDeleteOrder={onDeleteOrder} onUpdateOrder={onUpdateOrder}/>}/> 
+        <Route path="dogs/:dog_id" element={<DogItem onDeleteDog={onDeleteDog} />}/> 
+        <Route path="orders/:order_id" element={<OrderItem onDeleteOrder={onDeleteOrder} handleUpdateOrder={handleUpdateOrder}/>}/> 
         <Route path="orders" element={<AllOrders orders={orders}/>} />
       </Routes>
       <Outlet />
